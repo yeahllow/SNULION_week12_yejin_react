@@ -2,6 +2,14 @@ import axios from "axios";
 import { getCookie } from "../utils/cookie";
 import { refreshToken } from "./api";
 
+
+if (process.env.NODE_ENV === "development") {
+  axios.defaults.baseURL = "http://localhost:8000/api";
+} else {
+  axios.defaults.baseURL =
+    "https://port-0-snulion-week12-koh2xlisex7sv.sel4.cloudtype.app/api";
+}
+
 axios.defaults.baseURL = "http://localhost:8000/api";
 axios.defaults.withCredentials = true;
 axios.defaults.headers.post["Content-Type"] = "application/json";
